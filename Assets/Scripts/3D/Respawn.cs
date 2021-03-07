@@ -5,8 +5,8 @@ using UnityEngine;
 public class Respawn : MonoBehaviour
 {
     float dist=0f;
-    public Transform pl;
-    public GameObject child;
+    private GameObject pl;
+    public GameObject pref;
     private bool activ=false;
     private int enemyCount=3;
     Color white;

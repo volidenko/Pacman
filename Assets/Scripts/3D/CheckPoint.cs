@@ -8,7 +8,7 @@ public class CheckPoint : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        master1=GameObject.Find("GameObject").Getcomponent<GameObject>();
+        master1=GameObject.Find("GameMaster").GetComponent<GameMaster>();
     }
 
     void OnTriggerEnter(Collider other) {

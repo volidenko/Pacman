@@ -18,8 +18,8 @@ public class GameMaster : MonoBehaviour {
     // Start is called before the first frame update
     void Start()
     {
-        dLight=GameObject.Find("Directional Light").GetСomponent<Light>();
-        rb=GameObject.Find("EnemySmasher").GetСomponent<Rigidbody>();
+        dLight=GameObject.Find("Directional Light").GetComponent<Light>();
+        rb=GameObject.Find("EnemySmasher").GetComponent<Rigidbody>();
         blue=Color.blue;
         colDef=dLight.color;
         print(enemyCount);
