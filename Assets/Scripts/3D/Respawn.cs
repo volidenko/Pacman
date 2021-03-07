@@ -9,10 +9,14 @@ public class Respawn : MonoBehaviour
     public GameObject child;
     private bool activ=false;
     private int enemyCount=3;
+    Color white;
+    Renderer Mat;
     // Start is called before the first frame update
     void Start()
     {
         pl=GameObject.Find("Player");
+        Mat=GetComponent<Renderer>();
+        white=Color.white;
     }
 
     // Update is called once per frame
@@ -23,16 +27,20 @@ public class Respawn : MonoBehaviour
             //child.SetActive(true);
             activ=true;
             StartCoroutine("SpawnEnemy");
-            print("open");
+            //print("open");
+            if(enemyCount==0)
+            Mat.material.SetColor("_EmissionColor", white);
         }
     }
     IEnumerator SpawnEnemy(){
         if(enemyCount>0){
             Instantiate(pref, transform.position, Quaternion.identity);
-            print("enemyspawn");
+            enemyCount--;
+            //print("enemyspawn");
+            if(enemyCount==0)
+                Mat.material.SetColor("_EmissionColor", white);
             yield return new WaitForSeconds(3.0f);
             activ=false;
-            enemyCount--;
         }
         StopCoroutine("SpawnEnemy");
         print("close");

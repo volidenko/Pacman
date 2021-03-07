@@ -47,11 +47,19 @@ public class PlayerCollision : MonoBehaviour
                 // master.playerLive-=2;
                 // yield return new WaitForSeconds(2.0f);
 
-        IEnumerator Heal(){
-            while(true){
-                master.playerLive+=2;
-                print(master.playerLive);
-                yield return new WaitForSeconds(2.0f);
-            }
+    IEnumerator Heal(){
+        while(true){
+            master.playerLive+=2;
+            print(master.playerLive);
+            yield return new WaitForSeconds(2.0f);
+        }    
+    }
+
+    IEnumerator Burn(){
+        while(true){
+            master.playerLive-=2;
+            print(master.playerLive);
+            yield return new WaitForSeconds(2.0f);
+        }    
     }
 }
