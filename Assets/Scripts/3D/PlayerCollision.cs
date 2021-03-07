@@ -47,8 +47,6 @@ public class PlayerCollision : MonoBehaviour
                 // master.playerLive-=2;
                 // yield return new WaitForSeconds(2.0f);
 
-
-
         IEnumerator Heal(){
             while(true){
                 master.playerLive+=2;
