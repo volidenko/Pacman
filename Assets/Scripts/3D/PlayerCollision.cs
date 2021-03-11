@@ -7,11 +7,16 @@ public class PlayerCollision : MonoBehaviour
 {
     GameMaster master;
     public GameObject btnLose;
+    public bool isBurn=false;
+    public bool isHeal=false;
+    Pulse light1;
 
     // Start is called before the first frame update
     void Start()
     {
         master=GameObject.Find("GameMaster").GetComponent<GameMaster>();
+        light1=GameObject.Find("Player").GetComponent<Pulse>();
+
     }
     void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.tag=="Enemy"){
@@ -29,23 +34,26 @@ public class PlayerCollision : MonoBehaviour
             //print(master.playerScore);
         }
         if (other.gameObject.name=="Fire"){
+            isBurn=true;
             StartCoroutine("Burn");
         }
         if (other.gameObject.name=="Water"){
+            isBurn=false;
+            light1.lPoint.enabled=false;
             StopCoroutine("Burn");
         }
         if (other.gameObject.name=="Health"){
+            isHeal=true;
             StartCoroutine("Heal");
         }
     }
     void OnTriggerExit(Collider other) {
         if (other.gameObject.name=="Health"){
+            isHeal=false;
+            light1.lPoint.enabled=false;
             StopCoroutine("Heal");
         }
     }
-
-                // master.playerLive-=2;
-                // yield return new WaitForSeconds(2.0f);
 
     IEnumerator Heal(){
         while(true){

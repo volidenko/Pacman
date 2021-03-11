@@ -19,9 +19,11 @@ public class CheckPoint : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.tag=="Enemy"){
+            // Destroy(collision.gameObject);
+            // master1.enemyCount--;
+            // print("Enemy fall");
+        }
     }
 }

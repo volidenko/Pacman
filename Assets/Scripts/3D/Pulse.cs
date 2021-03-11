@@ -21,9 +21,18 @@ public class Pulse : MonoBehaviour
         defCol=Mat.material.GetColor("_EmissionColor");
         orange=new Color(1.0f, 0.36f, 0.0f, 1.0f);
         green=Color.green;
-        if(lPoint!=null){
-
+        if(lPoint!=null)
+        //print("yes");
+        if(this.gameObject.tag=="Enemy"){
+            enemy=this.GetComponent<Enemy>();
+            Transform child=transform.GetChild(0);
+            lPoint=child.GetComponent<Light>();
         }
+        if(this.gameObject.name=="Player"){
+            player=this.GetComponent<PlayerCollision>();
+            //print(player);
+        }
+
     }
 
     // Update is called once per frame
